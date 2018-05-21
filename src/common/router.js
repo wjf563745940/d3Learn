@@ -78,6 +78,9 @@ export const getRouterData = app => {
     '/d3Svg/line':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Line')),
     },
+    '/d3Svg/jiben':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Jiben')),
+    },
     '/d3Svg/zhifan':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/ZhiFan')),
     },

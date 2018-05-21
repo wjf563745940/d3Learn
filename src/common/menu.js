@@ -24,6 +24,10 @@ const menuData = [
       {
         name:'zhifan',
         path:'zhifan',
+      },
+      {
+        name:'jiben',
+        path:'jiben',
       }
     ]
   },
