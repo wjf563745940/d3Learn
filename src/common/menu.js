@@ -9,6 +9,14 @@ const menuData = [
       {
         name:'array',
         path:'array',
+      },
+      {
+        name:'dom',
+        path:'dom',
+      },
+      {
+        name:'比例尺',
+        path:'scale',
       }
     ]
   },

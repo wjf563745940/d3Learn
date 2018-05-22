@@ -4,6 +4,8 @@ import { Tabs,Card } from 'antd';
 import Statistics from './Statistics';
 import Search from './Search';
 import Transformations from './Transformations';
+import Nest from './Nest';
+
 import style from './index.less'
 
 export default class D3Array extends Component {
@@ -37,6 +39,9 @@ export default class D3Array extends Component {
                         </TabPane>
                         <TabPane tab="Transformations" key="3">
                             <Transformations></Transformations>
+                        </TabPane>
+                        <TabPane tab="Nest" key="4">
+                            <Nest></Nest>
                         </TabPane>
                     </Tabs>
                

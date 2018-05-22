@@ -75,6 +75,12 @@ export const getRouterData = app => {
     '/d3base/array':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3base/Array')),
     },
+    '/d3base/dom':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3base/Dom')),
+    },
+    '/d3base/scale':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3base/Scale')),
+    },
     '/d3Svg/line':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Line')),
     },

@@ -25,9 +25,9 @@ export default class Statistics extends Component {
         { name: "max", funName: "max" },
         { name: "extent计算数组中的最大值和最小值.", funName: "extent" },
         { name: "sum", funName: "sum" },
-        { name: "mean(算术中位数)", funName: "mean" },
-        { name: " d3.median (中位数)", funName: "median" },
-        { name: "d3.quantile (有序数组的分位数.)", funName: "quantile" },
+        { name: "mean(算术中位数 平均值)", funName: "mean" },
+        { name: " d3.median (中位数 中间值)", funName: "median" },
+        { name: "d3.quantile（arrays,p） (有序数组的分位数.)", funName: "quantile" },
         { name: "d3.variance (反差.)", funName: "variance" },
         { name: "d3.deviation (标准差.)", funName: "deviation" },
         ];

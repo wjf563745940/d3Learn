@@ -1,10 +1,8 @@
 import Rect, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Tabs,Card } from 'antd';
-import Circle from './Circle.js';
-import Historgram from './Historgram.js';
-
-
+import Element from './Element';
+import ElementData from './ElementData';
 import style from './index.less'
 
 export default class D3Array extends Component {
@@ -30,13 +28,12 @@ export default class D3Array extends Component {
             <div>
         
                     <Tabs defaultActiveKey="1" onChange={callback}>
-                        <TabPane tab="原" key="1" className={style.leftPanel}>
-                            <Circle></Circle>
+                        <TabPane tab="元素处理" key="1" className={style.leftPanel}>
+                            <Element></Element>
                         </TabPane>
-                        <TabPane tab="柱形" key="2" className={style.leftPanel}>
-                            <Historgram></Historgram>
+                        <TabPane tab="绑定数据" key="2" className={style.leftPanel}>
+                            <ElementData></ElementData>
                         </TabPane>
-                        
                     </Tabs>
                
             </div>

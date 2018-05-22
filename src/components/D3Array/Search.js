@@ -62,13 +62,13 @@ export default class Search extends Component {
                 }
             },
             { name: "bisect二分查找有序数组中指定元素的索引 ", funName: "bisect " },
-            { name: "bisectRight .二分查找有序数组中指定元素的索引", funName: "bisectRight " },
+            { name: "bisectRight .二分查找有序数组中指定元素的索引(可配合splice 对数组摸个位置插入对应值)", funName: "bisectRight " },
             { name: "bisectLeft 二分查找有序数组中指定元素的索引", funName: "bisectLeft " },
             { name: "bisector 用指定的访问器或比较器对二分查找", funName: "bisector " },
             { name: " bisector.left 与 bisectLeft 类似, 可以指定比较器.", funName: "bisector.left" },
             { name: "bisector.right ", funName: "bisector.right" },
-            { name: "ascending 计算两个值的自然顺序", funName: "ascending" },
-            { name: "d3.descending  计算两个值的自然顺序.", funName: "descending " },
+            { name: "ascending 计算两个值的自然顺序（排序）", funName: "ascending" },
+            { name: "d3.descending  计算两个值的自然顺序.（排序）", funName: "descending " },
         ];
         const listItems = numbers.map((number) =>
             <li onClick={this.methName.bind(this, number)} key={number.funName}>{number.name}</li>
