@@ -17,6 +17,10 @@ const menuData = [
       {
         name:'比例尺',
         path:'scale',
+      },
+      {
+        name:'刻度',
+        path:'axis',
       }
     ]
   },
@@ -36,6 +40,10 @@ const menuData = [
       {
         name:'jiben',
         path:'jiben',
+      },
+      {
+        name:'散点图',
+        path:'sandian',
       }
     ]
   },

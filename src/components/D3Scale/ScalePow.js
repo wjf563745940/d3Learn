@@ -37,7 +37,7 @@ export default class Search extends Component {
     render() {
         const numbers = [
            
-            { name: "d3.scale.pow - 创建一个指数比例尺 ", funName: "scale.pow" },
+            { name: "d3.scalePow  - 创建一个指数比例尺 ", funName: "scalePow " },
             { name: "pow.exponent - 设置指数 ", funName: "exponent " },
             { name: "pow.domain - 设置定义域 ", funName: "domain " },
             { name: " pow.range- 设置值域 ", funName: "range " },

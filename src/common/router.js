@@ -81,6 +81,9 @@ export const getRouterData = app => {
     '/d3base/scale':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3base/Scale')),
     },
+    '/d3base/axis':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3base/Axis')),
+    },
     '/d3Svg/line':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Line')),
     },
@@ -89,6 +92,9 @@ export const getRouterData = app => {
     },
     '/d3Svg/zhifan':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/ZhiFan')),
+    },
+    '/d3Svg/sandian':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Sandian')),
     },
     
     '/dashboard/analysis': {
