@@ -21,6 +21,14 @@ const menuData = [
       {
         name:'刻度',
         path:'axis',
+      },
+      {
+        name:'色彩',
+        path:'color',
+      },
+      {
+        name:'路径生成器',
+        path:'path',
       }
     ]
   },
