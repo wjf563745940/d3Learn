@@ -52,6 +52,10 @@ const menuData = [
       {
         name:'散点图',
         path:'sandian',
+      },
+      {
+        name:'折线图',
+        path:'zhexian'
       }
     ]
   },

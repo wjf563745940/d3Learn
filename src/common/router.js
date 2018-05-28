@@ -103,6 +103,10 @@ export const getRouterData = app => {
     '/d3Svg/sandian':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Sandian')),
     },
+    '/d3Svg/zhexian':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Zhexian')),
+    },
+    
     
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
