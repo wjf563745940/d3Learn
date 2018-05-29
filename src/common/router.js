@@ -90,7 +90,9 @@ export const getRouterData = app => {
     '/d3base/path':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3base/Path')),
     },
-
+    '/d3base/transition':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3base/Transition')),
+    },
     '/d3Svg/line':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Line')),
     },
@@ -106,7 +108,15 @@ export const getRouterData = app => {
     '/d3Svg/zhexian':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Zhexian')),
     },
-    
+    '/d3Svg/pie':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Pie')),
+    },
+    '/d3Svg/forceLine':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/ForceLine')),
+    },
+    '/d3Svg/tree':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Tree')),
+    },
     
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),

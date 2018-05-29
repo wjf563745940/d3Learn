@@ -29,6 +29,10 @@ const menuData = [
       {
         name:'路径生成器',
         path:'path',
+      },
+      {
+        name:'过度和动画',
+        path:'transition',
       }
     ]
   },
@@ -38,15 +42,15 @@ const menuData = [
     path:'d3Svg',
     children:[
       {
-        name:'line',
+        name:'线',
         path:'line',
       },
       {
-        name:'zhifan',
+        name:'直方',
         path:'zhifan',
       },
       {
-        name:'jiben',
+        name:'基本',
         path:'jiben',
       },
       {
@@ -56,6 +60,18 @@ const menuData = [
       {
         name:'折线图',
         path:'zhexian'
+      },
+      {
+        name:'饼图',
+        path:'pie'
+      },
+      {
+        name:'力导向图',
+        path:'forceLine'
+      },
+      {
+        name:'树状图',
+        path:'tree'
       }
     ]
   },
