@@ -72,6 +72,10 @@ const menuData = [
       {
         name:'树状图',
         path:'tree'
+      },
+      {
+        name:'集群',
+        path:'dendrogram'
       }
     ]
   },

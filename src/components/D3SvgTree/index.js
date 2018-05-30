@@ -6,59 +6,75 @@ export default class D3SvgLine extends Component {
     componentDidMount() {
         var width=600,height=600;
         var svg=d3.select("#chart")
-        var dataset=[["小米",60.8],["三星",58.4],["苹果",99],["华为",66]]
-        var pie =d3.pie()
-        .value(d=>d[1])
-        var piedata=pie(dataset)
-        console.log(piedata)
-        var outerRadius=width/3;
-        var innerRadius=0;
-        var arc=d3.arc()
-        .innerRadius(innerRadius)
-        .outerRadius(outerRadius)
-        var color=d3.schemeCategory20;
-        var arcs=svg.selectAll("g")
-        .data(piedata)
-        .enter()
-        .append("g")
-        .attr("transform","translate("+(width/2)+","+(height/2)+")");
-        arcs.append("path")
-        //.attr("fill","none")
-        //.attr("stroke-width",3)
-        .attr("fill",(d,i)=>{console.log(color[i]); return color[i]})
-        .attr("d",d=>arc(d))
-        ///绘制数字
-        arcs.append("text")
-        .attr("transform",d=>{
-            var x=arc.centroid(d)[0]*1.4
-            var y=arc.centroid(d)[1]*1.4
-            return "translate("+x+","+y+")"
-        })
-        .attr("text-anchor","middle")
-        .text(d=>{
-            var percent=Number(d.value)/d3.sum(dataset,d=>d[1])*100
-            return percent.toFixed(1)+"%";
-        })
+        var g = svg.append("g").attr("transform", "translate(40,0)");
 
-        //绘制文字
-        arcs.append("line")
-        .attr("stroke","black")
-        .attr("x1",d=>arc.centroid(d)[0]*2)
-        .attr("y1",d=>arc.centroid(d)[1]*2)
-        .attr("x2",d=>arc.centroid(d)[0]*2.2)
-        .attr("y2",d=>arc.centroid(d)[1]*2.2)
-
-        arcs.append("text")
-        .attr("transform",d=>{
-            var x=arc.centroid(d)[0]*2.5
-            var y=arc.centroid(d)[1]*2.5
-            return "translate("+x+","+y+")"
+        var dataset={
+            name:"中国",
+            children:[
+                {name:"浙江",
+                 children:[
+                     {name:"杭州"},
+                     {name:"台州"}
+                 ]   
+                },
+                {
+                    name:"广西",
+                    children:[
+                        {name:"桂林",
+                          children:[
+                              {name:"七星区"}
+                          ]  
+                        },
+                        {name:"南宁"}
+                    ]
+                }
+            ]
+        }
+        var cluster=d3.cluster();
+        var tree =d3.tree()///初始化树结构布局
+        .size([width,height-200])
+        .separation((a,b)=>{
+            return (a.parent==b.parent?1:2)//比较2个节点
         })
-        .attr("text-anchor","middle")
-        .text(d=>{
-            return d.data[0]
-        })
+        console.log(tree)
+        console.log( d3.hierarchy(dataset,d=>{return d.children}))
+        console.log(tree(d3.hierarchy(dataset)))
+        console.log(cluster(d3.hierarchy(dataset)))
+        // var stratify = d3.stratify()
+        // .parentId(function(d) {console.log(d) ;return d.name; });
+        //如果不是json数据可以使用d3.stratify将表格数据（如逗号分隔值（CSV））生成对应的数据格式
+        var root = tree(d3.hierarchy(dataset))//转化数据层次 并生成树根节点
 
+        //.id(function(d) { console.log(d);return "path"; })
+        //.parentId(function(d) { return "aasd"; })
+        console.log(root)
+        console.log(root.descendants())
+        var link = g.selectAll(".link")
+        .data(root.descendants().slice(1))//出来跟节点都要生成连线
+      .enter().append("path")
+        .attr("class", "link")
+        .attr("d", diagonal);
+        var node = g.selectAll(".node")//生成节点
+        .data(root.descendants())
+      .enter().append("g")
+        .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+        .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+        console.log(node)
+        node.append("circle")
+        .attr("r", 2.5);
+
+        node.append("text")
+      .attr("dy", 3)
+      .attr("x", function(d) { return d.children ? -8 : 8; })
+      .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+      .text(function(d) { console.log(d);return d.data.name; });
+
+      function diagonal(d) {
+        return "M" + d.y + "," + d.x
+            + "C" + (d.parent.y + 100) + "," + d.x
+            + " " + (d.parent.y + 100) + "," + d.parent.x
+            + " " + d.parent.y + "," + d.parent.x;
+      }
     };
     render() {
 
