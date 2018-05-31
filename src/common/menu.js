@@ -76,6 +76,10 @@ const menuData = [
       {
         name:'集群',
         path:'dendrogram'
+      },
+      {
+        name:'地图',
+        path:'ditu'
       }
     ]
   },

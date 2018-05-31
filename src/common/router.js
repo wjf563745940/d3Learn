@@ -120,6 +120,9 @@ export const getRouterData = app => {
     '/d3Svg/dendrogram':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Dendrogram')),
     },
+    '/d3Svg/ditu':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Ditu')),
+    },
 
     
     '/dashboard/analysis': {
