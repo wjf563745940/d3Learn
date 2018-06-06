@@ -123,6 +123,13 @@ export const getRouterData = app => {
     '/d3Svg/ditu':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Ditu')),
     },
+    '/d3Svg/leida':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Leida')),
+    },
+    '/d3Svg/leida2':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Leida2')),
+    },
+    
 
     
     '/dashboard/analysis': {

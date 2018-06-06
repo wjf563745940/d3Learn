@@ -80,6 +80,13 @@ const menuData = [
       {
         name:'地图',
         path:'ditu'
+      },
+      {
+        name:'雷达',
+        path:'leida'
+      },{
+        name:'雷达2(换数据格式)',
+        path:'leida2'
       }
     ]
   },
