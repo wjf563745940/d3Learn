@@ -129,8 +129,14 @@ export const getRouterData = app => {
     '/d3Svg/leida2':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Leida2')),
     },
+    '/d3Svg/leida3':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Leida3')),
+    },
     
-
+    '/d3Svg/dbline':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Dbline')),
+    },
+    
     
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),

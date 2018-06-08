@@ -79,7 +79,6 @@ export default class D3SvgLine extends Component {
         }
         (function painGrid() {
             // 绘制网轴
-            console.log(polygons)
 
             var webs = main.append('g')
                 .classed('webs', true);
@@ -105,6 +104,7 @@ export default class D3SvgLine extends Component {
                 .enter()
                 .append('line')
                 .attr("fill",axisLineColor)
+                .attr("stroke",axisLineColor)
                 .attr('x1', 0)
                 .attr('y1', 0)
                 .attr('x2', function (d) {
@@ -187,11 +187,11 @@ export default class D3SvgLine extends Component {
 
 
             var textPoints = [];
-            var textRadius = radius + 60;
+            var textRadius = radius + 30;
             for (var i = 0; i < total; i++) {
                 var x = textRadius * Math.sin(i * onePiece),
-                    y = (radius + 20) * Math.cos(i * onePiece);
-                x = x == 0 ? (x - 60) : (x - 60)
+                    y = (radius + 10) * Math.cos(i * onePiece);
+                x = x == 0 ? (x - 30) : (x - 30)
                 textPoints.push({
                     x: x,
                     y: y

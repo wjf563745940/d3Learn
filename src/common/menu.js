@@ -87,6 +87,14 @@ const menuData = [
       },{
         name:'雷达2(换数据格式)',
         path:'leida2'
+      },
+      {
+        name:'双线(换数据格式)',
+        path:'dbline'
+      },
+      {
+        name:'雷达3',
+        path:'leida3'
       }
     ]
   },
