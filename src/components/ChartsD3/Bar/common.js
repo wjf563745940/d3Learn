@@ -1,7 +1,8 @@
 import * as d3 from "d3";
 import {
     createScale,
-    createAxis
+    createAxis,
+    deepClone
 } from './util'
 var D3Charts=function(el,options){
     this.options=options
@@ -18,8 +19,6 @@ D3Charts.DEFAULTS={
 }
 D3Charts.prototype.init=function(el){
     this.$el=el;
-    console.log(this)
-    console.log(this.DEFAULTOPTIONS)
     return this;
 }
 D3Charts.prototype.DEFAULTOPTIONS={
@@ -46,8 +45,10 @@ D3Charts.prototype.setOption=function(options){
 }
 D3Charts.prototype.mergeOption=function(newOpts,defaultOpts){
     console.log(defaultOpts)
-   // console.log(Object.assign(defaultOpts,newOpts,{static:D3Charts.DEFAULTS}))
-  return   Object.assign({},defaultOpts,newOpts,{static:D3Charts.DEFAULTS});
+   // console.log(Object.assign(defaultOpts,newOpts,{static:D3Charts.DEFAULTS}))    
+   var con=deepClone(defaultOpts,newOpts);
+   console.log(con)
+  return Object.assign({}, con,{static:D3Charts.DEFAULTS}) ;
 }
 D3Charts.prototype.draw=function(){
         var {xScale,yScale}=createScale(this.getScaleParam());
