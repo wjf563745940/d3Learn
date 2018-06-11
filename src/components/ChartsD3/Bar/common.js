@@ -18,11 +18,12 @@ D3Charts.DEFAULTS={
 }
 D3Charts.prototype.init=function(el){
     this.$el=el;
-    console.log(this.DEFAULTS_OPTIONS)
+    console.log(this)
+    console.log(this.DEFAULTOPTIONS)
     return this;
 }
-D3Charts.prototype.DEFAULTS_OPTIONS={
-    title:{},
+D3Charts.prototype.DEFAULTOPTIONS={
+    title:{name:"test"},
     legend:{},
     xAxis: {
         type: 'category',
@@ -39,15 +40,14 @@ D3Charts.prototype.DEFAULTS_OPTIONS={
     }]
 }
 D3Charts.prototype.setOption=function(options){
-    console.log(this.DEFAULTS_OPTIONS)
-    this.options=this.mergeOption(options,this.DEFAULTS_OPTIONS);
+    this.options=this.mergeOption(options,this.DEFAULTOPTIONS);
     this.draw();
 
 }
 D3Charts.prototype.mergeOption=function(newOpts,defaultOpts){
     console.log(defaultOpts)
-    console.log(Object.assign(defaultOpts,newOpts,{static:D3Charts.DEFAULTS}))
-  return   Object.assign(defaultOpts,newOpts,{static:D3Charts.DEFAULTS});
+   // console.log(Object.assign(defaultOpts,newOpts,{static:D3Charts.DEFAULTS}))
+  return   Object.assign({},defaultOpts,newOpts,{static:D3Charts.DEFAULTS});
 }
 D3Charts.prototype.draw=function(){
         var {xScale,yScale}=createScale(this.getScaleParam());
