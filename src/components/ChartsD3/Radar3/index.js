@@ -194,7 +194,7 @@ export default class D3SvgLine extends Component {
 
         function pianScan(){
             var scan = svg.append('g')
-            .attr("transform","translate(200,200)")
+            .attr("transform","translate(0,0)")
                 .classed('scan', true);
                 var dataset={startAngle:0,endAngle:Math.PI/2}
                 var arcPath = d3.arc()
@@ -206,6 +206,17 @@ export default class D3SvgLine extends Component {
                 .attr("class", "p")
                 .attr("stroke",color)
                 .attr("style","fill:url(#orange_red)")
+                .attr("transform","translate(200,200)")
+
+                scan.append("animateTransform")
+                .attr("attributeName","transform")
+                .attr("begin","0s")
+                .attr("dur","10s")
+                .attr("type","rotate")
+                .attr("from","0 200 200")
+                .attr("to","360 200 200")
+                .attr("repeatCount","indefinite")
+                
           }
             pianScan()
 

@@ -136,6 +136,9 @@ export const getRouterData = app => {
     '/d3Svg/dbline':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Dbline')),
     },
+    '/d3Svg/bar':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Bar'))
+    },
     
     
     '/dashboard/analysis': {

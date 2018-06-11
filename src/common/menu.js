@@ -95,7 +95,11 @@ const menuData = [
       {
         name:'雷达3',
         path:'leida3'
+      },{
+        name:"柱状",
+        path:"bar"
       }
+
     ]
   },
   {
