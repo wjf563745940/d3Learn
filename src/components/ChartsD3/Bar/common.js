@@ -51,11 +51,15 @@ D3Charts.prototype.mergeOption=function(newOpts,defaultOpts){
   return Object.assign({}, con,{static:D3Charts.DEFAULTS}) ;
 }
 D3Charts.prototype.draw=function(){
-        var {xScale,yScale}=createScale(this.getScaleParam());
-        var {xAxis,yAxis}=createAxis(Object.assign({xScale,yScale},this.getAxisParam()))
+    var ScaleParam=this.getScaleParam()
+        console.log(ScaleParam)
+        var {xScale,yScale}=createScale(ScaleParam);
+        var axiosp=Object.assign({xScale,yScale},this.getAxisParam());
+        console.log(axiosp)
+        var {xAxis,yAxis}=createAxis(axiosp)
         var staticp=this.options.static;
         var padding=staticp.padding;
-        console.log(xAxis)
+
         var svg=this.$el;
         svg.append("g")
         .attr("class", "axis")

@@ -43,25 +43,25 @@ function createAxisDir(dir) {
 }
 export const deepClone =function deepClone(target,data){
     var type = getType(data);
-    var obj=target;
-    if(type === 'array'){
-        obj = [];
-    } else if(type === 'object'){
-        obj = {};
-    } else {
-        //不再具有下一层次
-        return data;
-    }
-    if(type === 'array'){
-        for(var i = 0, len = data.length; i < len; i++){
-            obj.push(deepClone(data[i]));
+        if(target==undefined){
+            target={};
         }
-    } else if(type === 'object'){
-        for(var key in data){
-            obj[key] = deepClone(data[key]);
+        if (type == "object") {
+            for (var key in data) {
+                if (getType(data[key])=="object") {
+                    target[key]= deepClone(target[key],data[key])
+                }else{
+                    target[key]=data[key]
+                }
+            }
         }
-    }
-    return obj;
+        else if (type == "array") {
+
+        } else {
+            return target;
+        }
+
+        return target;
 }
 function getType(obj){
     //tostring会返回对应不同的标签的构造函数
