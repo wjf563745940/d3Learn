@@ -29,7 +29,7 @@ export const createAxis = function (params) {
     var xAxis = createAxisDir(params.x)
         .scale(params.xScale)
        // .ticks(50)
-        .tickValues([1, 11.16,12.36,13.56,14.76]);
+        .tickValues([10.04, 11.16,12.36,13.56,14.76]);
        // .tickArguments([40]);
     //  .tickFormat(d3.format("d"))
     console.log(params)
