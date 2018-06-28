@@ -26,15 +26,15 @@ if(params.x.type=="value"){
     return { xScale, yScale }
 }
 export const createAxis = function (params) {
-    var xAxis = createAxisDir(params.x)
-        .scale(params.xScale)
+    console.log(params)
+    var xAxis = createAxisDir(params.x.position)
+        .scale(params.x.xScale)
        // .ticks(50)
-        .tickValues([10.04, 11.16,12.36,13.56,14.76]);
+       .tickValues(params.x.tickValues);
        // .tickArguments([40]);
     //  .tickFormat(d3.format("d"))
-    console.log(params)
-    var yAxis = createAxisDir(params.y)
-        .scale(params.yScale);
+    var yAxis = createAxisDir(params.y.position)
+        .scale(params.y.yScale);
     return { xAxis, yAxis }
 }
 function createAxisDir(dir) {
@@ -63,6 +63,9 @@ export const deepClone = function deepClone(target, data) {
             }else if(getType(data[key])=="array"){
                 target[key]= deepClone(target[key],data[key])
             }else{
+                if(!(getType(target[key])=="object" || getType(target[key])=="array")){
+                    target={};
+                }
                 target[key]=data[key]
             }
         }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from "d3";
 import styles from './index.less';
-
+import d3Charts from './common'
 export default class D3SvgLine extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +10,9 @@ export default class D3SvgLine extends Component {
     }
     componentDidMount() {
 
-        this.setOption(this.props.data)
+        //this.setOption(this.props.data)
+        var d3charts=   d3Charts.init(d3.select("#chart"));
+      d3charts.setOption(this.props.data)
 
     };
     setOption(option) {
@@ -42,7 +44,7 @@ export default class D3SvgLine extends Component {
 
             return palette[idx % palette.length];
         }
-        console.log(radar)
+    
         // 设定一些方便计算的常量
         var radius = 200,
             // 指标的个数，即fieldNames的长度

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+
 import * as d3 from "d3";
 import styles from './index.less';
+import d3Charts from './common'
 
 export default class D3SvgLine extends Component {
     constructor(props) {
@@ -9,11 +11,12 @@ export default class D3SvgLine extends Component {
         };
     }
     componentDidMount() {
-        // var defaultOption={
+        var defaultOption={
 
-        // }
-        this.setOption(this.props.data)
-
+        }
+      // this.setOption(this.props.data)
+      var d3charts=   d3Charts.init(d3.select("#chart"));
+      d3charts.setOption(this.props.data)
     };
     jisuanFun(num, nosurenum) {
 
@@ -30,7 +33,7 @@ export default class D3SvgLine extends Component {
         var width = 600;
         var height = 600;
         var padding = { top: 50, right: 50, bottom: 50, left: 50 };
-        var svg = d3.select("#chart");
+        var svg = d3.select("#chart2");
         var xAxisOption = option.xAxis ? option.xAxis : (option.axis ? option.axis[0] : null);
         var yAxisOption = option.yAxis ? option.yAxis : (option.axis ? option.axis[1] : null);
         var seriesOption = option.series;
@@ -192,9 +195,12 @@ export default class D3SvgLine extends Component {
         return obj
     }
     render() {
-
+      
         return (
-            <div className={styles.chartCon}><svg className={styles.chart} id="chart" width="600" height="600"></svg></div>
+            <div className={styles.chartCon}>
+            <svg className={styles.chart} id="chart" width="600" height="600"></svg>
+            <svg className={styles.chart} id="chart2" width="600" height="600"></svg>
+            </div>
         )
     }
 }
