@@ -139,8 +139,14 @@ export const getRouterData = app => {
     '/d3Svg/bar':{
       component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Bar'))
     },
-    
-    
+    '/d3Svg/pie2':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/Pie2'))
+    },
+    '/d3Svg/kLine':{
+      component:dynamicWrapper(app,[],()=>import('../routes/D3Svg/KLine'))
+    },
+
+
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
     },

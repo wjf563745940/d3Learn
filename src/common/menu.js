@@ -98,6 +98,13 @@ const menuData = [
       },{
         name:"柱状",
         path:"bar"
+      },{
+        name:"饼图2",
+        path:"pie2"
+      },
+      {
+        name:"k线",
+        path:"kLine"
       }
 
     ]

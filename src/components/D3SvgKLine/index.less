@@ -1,0 +1,30 @@
+.chart {
+    path {
+        fill: transparent;
+        stroke: green;
+    }
+    :global {
+        .webs polygon,
+        .lines line {
+            fill: white;
+            fill-opacity: 0.5;
+            stroke: gray;
+            stroke-dasharray: 10 5;
+        }
+        .webs polygon:nth-child(odd){
+            fill:#ccc;
+        }
+        .areas polygon {
+            fill-opacity: 0.5;
+            stroke-width: 3;
+        }
+        .areas circle {
+            fill: white;
+            stroke-width: 3;
+        }
+    }
+}
+
+.chartCon {
+    font-size: 12px;
+}

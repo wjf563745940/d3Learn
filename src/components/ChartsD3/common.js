@@ -53,8 +53,8 @@ D3Charts.prototype.setOption = function (options) {
     if( getType(options.yAxis)=="object"){
         options.yAxis=[options.yAxis]
     }
-    console.log(JSON.stringify(this.DEFAULTOPTIONS) )
-    console.log(JSON.stringify(options))
+    console.log(this.DEFAULTOPTIONS) 
+    console.log(options)
     this.options = this.mergeOption(options, this.DEFAULTOPTIONS);
     console.log( this.options)
     this.draw();
@@ -113,6 +113,7 @@ D3Charts.prototype.getScaleParam = function () {
     x.rangefrom = 0;
     x.rangeto = staticp.width - staticp.padding.left - staticp.padding.right;
     y.domainfrom = 0;
+    console.log(options)
     options.series[0].data.forEach((item,i)=>{
         options.series[0].data[i]= options.series[0].data[i]*1
     })

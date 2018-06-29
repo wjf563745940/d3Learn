@@ -63,10 +63,11 @@ export const deepClone = function deepClone(target, data) {
             }else if(getType(data[key])=="array"){
                 target[key]= deepClone(target[key],data[key])
             }else{
-                if(!(getType(target[key])=="object" || getType(target[key])=="array")){
-                    target={};
+                if(getType(target)!="object"){
+                    target={}; 
                 }
                 target[key]=data[key]
+                console.log(target[key])
             }
         }
     }
@@ -77,6 +78,9 @@ export const deepClone = function deepClone(target, data) {
                 }else if(getType(data[i])=="array"){
                     target[i]= deepClone(target[i],data[i])
                 }else{
+                    if(getType(target)!="array"){
+                        target=[]; 
+                    }
                     target[i]=data[i]
                 }
             }

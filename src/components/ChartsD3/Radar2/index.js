@@ -10,9 +10,9 @@ export default class D3SvgLine extends Component {
     }
     componentDidMount() {
 
-        //this.setOption(this.props.data)
-        var d3charts=   d3Charts.init(d3.select("#chart"));
-      d3charts.setOption(this.props.data)
+        this.setOption(this.props.data)
+       // var d3charts=   d3Charts.init(d3.select("#chart"));
+    //  d3charts.setOption(this.props.data)
 
     };
     setOption(option) {
