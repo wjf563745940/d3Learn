@@ -127,7 +127,7 @@ export default class D3SvgLine extends Component {
                     area = '',
                     points = [];
                 for (var k = 0; k < total; k++) {
-                    console.log(radar)
+               
                     nowmax = radar[0].indicator[k].max ? radar[0].indicator[k].max : nowmax;
                     var r = radius * (value[k]) / (nowmax);
                     var x = r * Math.sin(k * onePiece),

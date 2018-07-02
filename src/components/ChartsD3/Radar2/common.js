@@ -19,7 +19,7 @@ D3ChartsRadar.prototype.draw = function () {
 }
 D3ChartsRadar.prototype.drawContent = function () {
     var svg = this.$el;
-    console.log(this)
+
     var staticp = this.options.static;
     var width = staticp.width;
     var option=this.options;
@@ -45,7 +45,7 @@ D3ChartsRadar.prototype.drawContent = function () {
         return;
     }
     var palette = d3.schemeCategory10;
-    console.log(option)
+  
     function getColor(idx) {
 
         return palette[idx % palette.length];
@@ -132,7 +132,7 @@ D3ChartsRadar.prototype.drawContent = function () {
                 area = '',
                 points = [];
             for (var k = 0; k < total; k++) {
-                console.log(radar)
+           
                 nowmax = radar[0].indicator[k].max ? radar[0].indicator[k].max : nowmax;
                 var r = radius * (value[k]) / (nowmax);
                 var x = r * Math.sin(k * onePiece),

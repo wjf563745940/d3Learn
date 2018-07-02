@@ -10,7 +10,7 @@ export default class D3SvgLine extends Component {
       }
     componentDidMount() {
         
-        console.log(this.props)
+
         this.setOption(this.props.data)
        
     };
@@ -79,7 +79,7 @@ export default class D3SvgLine extends Component {
         }
         (function painGrid() {
             // 绘制网轴
-            console.log(polygons)
+        
 
             var webs = main.append('g')
                 .classed('webs', true);
@@ -117,7 +117,7 @@ export default class D3SvgLine extends Component {
                 area = '',
                 points = [];
             for (var k = 0; k < total; k++) {
-                console.log(radar)
+              
                  nowmax=radar[0].indicator[k].max?radar[0].indicator[k].max:nowmax;
                 var r = radius * (value[k]) / (nowmax);
                 var x = r * Math.sin(k * onePiece),
@@ -128,14 +128,13 @@ export default class D3SvgLine extends Component {
                     y: y
                 })
             }
-            console.log(area)
-            console.log(points)
+          
             areasData.push({
                 polygon: area,
                 points: points
             });
         }
-        console.log(areasData)
+      
         var areas = main.append('g')
             .classed('areas', true);
         // 添加g分组用来包含一个雷达图区域下的多边形以及圆点 

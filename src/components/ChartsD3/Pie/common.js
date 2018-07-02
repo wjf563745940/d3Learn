@@ -24,20 +24,20 @@ D3ChartsPie.prototype.drawContent = function drawContent() {
     var width = staticp.width;
     var height = staticp.height;
     var dataset2 = this.getDataSet();
-    console.log(dataset2)
+
     var dataset=[];
     for(var i=0;i<dataset2.length;i++){
         dataset[i]=[]
         dataset[i][0]=dataset2[i].y.name;
         dataset[i][1]=dataset2[i].y.value
     }
-    console.log(dataset)
+    
     var pie = d3.pie()
         .value(d =>{ return d[1]});
     var piedata = pie(dataset);
     var outerRadius = width / 3;
     var innerRadius = 0;
-    console.log(piedata)
+   
     ///绘制弧
     var arc = d3.arc()
         .innerRadius(innerRadius)

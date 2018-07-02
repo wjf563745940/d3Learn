@@ -57,24 +57,24 @@ export default class Search extends Component {
                 [ 1013,   990,  940, 6907]
               ];
             var chord = d3.chord()
-            console.log(chord)
+           
             
              var dataset2=chord(matrix);
-             console.log(dataset2)
+             
             // .sourchord
             var ribbon = d3.ribbon()
             .radius(240);
            // dataset2[0].source.radius=240;
             //dataset2[0].target.radius=240;
-            console.log(dataset2[0])
+           
             var color=d3.schemeCategory10;
-            console.log(ribbon(dataset2[0]))
+          
             var tt={
                 source: {startAngle: 0.7524114, endAngle: 1.1212972, radius: 240},
                 target: {startAngle: 1.8617078, endAngle: 1.9842927, radius: 240}
               }
-              console.log(tt)
-            console.log(ribbon(tt))
+             
+         
             var svg = d3.select(".charCon2").append("svg")
                 .attr("width", width)
                 .attr("height", height);
@@ -82,7 +82,7 @@ export default class Search extends Component {
             .data(dataset2)
             .enter()
             .append('path')
-            .attr("d",d=>{console.log(d);return ribbon(d)})
+            .attr("d",d=>{return ribbon(d)})
             .attr("transform","translate(250,250)")
             .attr("stroke",(d,i)=> color[i])
             .attr("stroke-width","2px")

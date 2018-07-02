@@ -34,7 +34,7 @@ export default class Search extends Component {
                 }).key(function(d){
                     return d.hometown;
                 }).entries(normalArray1);
-                console.log(r)
+            
                 this.setState({ arrString:this.arrTorString(normalArray1)   })
                 this.setState({ result: "" + this.arrTorString(r)});
                 this.setState({ funName:`d3.nest().key(function(d){

@@ -20,7 +20,7 @@ export default class D3Array extends Component {
 
     render() {
         function callback(key) {
-            console.log(key);
+           
         }
         const TabPane = Tabs.TabPane;
         const arrfun = [{ name: "d3.min", funname: "min" }]

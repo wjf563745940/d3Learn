@@ -1,14 +1,16 @@
 import * as d3 from "d3";
 export const createScale = function (params,invert) {
     var xScale, yScale;
-console.log(params)
+
 if(params.x.type=="value"){
     xScale = d3.scaleLinear()
     .domain([params.x.domainfrom, params.x.domainto])
     .range([params.x.rangefrom, params.x.rangeto])
 }else if(params.x.type=="category"){
+    var dd=params.x.domainto.map(function(d) { return d; })
+    console.log(dd)
     xScale =d3.scaleBand()
-    .domain(params.x.domainto.map(function(d) { return d; }))
+    .domain(dd)
     .range([params.x.rangefrom, params.x.rangeto])
     .padding(0.1);
 }
@@ -30,9 +32,14 @@ export const createAxis = function (params) {
     var xAxis = createAxisDir(params.x.position)
         .scale(params.x.xScale)
        // .ticks(50)
-       .tickValues(params.x.tickValues);
+     
        // .tickArguments([40]);
-    //  .tickFormat(d3.format("d"))
+    //  .tickFormat(d3.format("d"));
+    if(params.x.tickValues.length==0){
+        xAxis.tickValues(["2013/1/24","2013/5/21"]) 
+    }else{
+        xAxis.tickValues(params.x.tickValues) 
+    }
     var yAxis = createAxisDir(params.y.position)
         .scale(params.y.yScale);
     return { xAxis, yAxis }
@@ -67,7 +74,7 @@ export const deepClone = function deepClone(target, data) {
                     target={}; 
                 }
                 target[key]=data[key]
-                console.log(target[key])
+            
             }
         }
     }

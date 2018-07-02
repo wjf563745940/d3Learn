@@ -55,7 +55,7 @@ export default class Search extends Component {
             .innerRadius(0)
             .outerRadius(100);
             var color =d3.schemeCategory10;
-            console.log(color)
+          
 
             var svg = d3.select(".charCon2").append("svg")
                 .attr("width", width)

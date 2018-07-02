@@ -42,7 +42,7 @@ export default class D3SvgLine extends Component {
             zhunxinData.push("rotate("+rotate+")")
         }
         for(let i=0;i<4;i++){
-            console.log(onePiece)
+   
             var x2 =  r* Math.sin(i * onePiece-2 * Math.PI /360*2),
             y2 = r * Math.cos(i * onePiece-2 * Math.PI /360*2);
            

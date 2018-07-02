@@ -41,7 +41,7 @@ export default class Search extends Component {
                 }).right;
                 //var bisectDate = d3.bisector(function(d, x) { return d.date - x; }).right;
                 var i = bisectDate(bisectorArray, new Date(2011, 1, 2))
-                console.log(i);
+      
                 this.setState({arrString:this.arrTorString(bisectorArray)})
                 this.setState({ result: "new Date(2011, 1, 2) 在new Date(2011, 1, 1)和new Date(2011, 2, 1)之间返回索引值" +i  });
                 this.setState({ funName: par.name })

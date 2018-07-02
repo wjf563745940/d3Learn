@@ -53,8 +53,7 @@ export default class D3SvgLine extends Component {
         if(option.grid){
             padding=option.grid
         }
-        console.log("pddd",option.grid) 
-        console.log("pddd",padding)
+   
         var xScale,
             yScale;
         function createScale() {

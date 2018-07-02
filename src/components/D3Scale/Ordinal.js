@@ -25,7 +25,7 @@ export default class Search extends Component {
             var color=d3.scaleOrdinal(d3.schemeCategory10)
             // .domain([0,50])
             // .range(["#888","#666","#444","#222","#000"])
-         console.log(color(1))
+ 
             // console.log(quantize(35))
             var r=d3.range(5);
             var svg=d3.select(".charCon").append("svg")

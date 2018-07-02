@@ -32,7 +32,7 @@ export default class Search extends Component {
                 break;
             case "ticks":
                 var r = d3[par.funName](10,20,4);
-                console.log(r)
+              
                 this.setState({ arrString: "入参900" })
                 this.setState({ funName: par.name + "" })
                 this.setState({ result: r.toString() });
@@ -47,7 +47,7 @@ export default class Search extends Component {
                 break;
             case "transpose":
                 var r = d3[par.funName]([[0, 1, 2], [3, 4, 5]])
-                console.log(r)
+              
                 this.setState({ arrString: "[[0,1,2],[3,4,5]]" })
                 this.setState({ funName: par.name })
                 this.setState({ result: "[[0, 3],[1,4],[2, 5]" + "矩阵置换" });
@@ -55,7 +55,7 @@ export default class Search extends Component {
             case "zip":
 
                 var r = d3[par.funName]([1, 2, 3, 4], [5, 6, 7], [8, 9])
-                console.log(r)
+             
                 this.setState({ arrString: "[1,2,3,4],[5,6,7],[8,9]" })
                 this.setState({ funName: par.name })
                 this.setState({ result: "[[1, 5, 8],[2, 6, 9]]" + "第i个元素来自不同数组的第i个元素" });

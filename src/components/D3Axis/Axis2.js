@@ -38,6 +38,7 @@ export default class Search extends Component {
             .attr("width",width)
             .attr("height",height)
             //设置比例尺
+            console.log(d3.range(dataSet.length))
             var xScale=d3.scaleBand()
             .domain(d3.range(dataSet.length))
             .rangeRound([0,xAxisWidth])
@@ -61,8 +62,7 @@ export default class Search extends Component {
         })
         .attr("width",20)
         .attr("height",function(d){
-            console.log(d)
-            console.log(YScale(d))
+          
             return YScale(d);
         })
             //定义坐标

@@ -5,9 +5,10 @@ import {
     deepClone,
     getType
 } from './util'
-var D3Charts = function (el, options) {
+var D3Charts = function (el, options,type) {
     this.options = options
     this.$el = el;
+    this.type=type?type:"normal"
 
 }
 D3Charts.DEFAULTS = {
@@ -53,16 +54,16 @@ D3Charts.prototype.setOption = function (options) {
     if( getType(options.yAxis)=="object"){
         options.yAxis=[options.yAxis]
     }
-    console.log(this.DEFAULTOPTIONS) 
-    console.log(options)
+ 
     this.options = this.mergeOption(options, this.DEFAULTOPTIONS);
-    console.log( this.options)
+
     this.draw();
 }
 D3Charts.prototype.mergeOption = function (newOpts, defaultOpts) {//合并参数
     var con = deepClone(defaultOpts, newOpts);
-    console.log(con)
-    return Object.assign({}, con, { static: D3Charts.DEFAULTS });
+    var result=Object.assign({}, con, { static: D3Charts.DEFAULTS });
+
+    return result;
 }
 D3Charts.prototype.draw = function () {
     this.drawAxis();
@@ -78,7 +79,8 @@ D3Charts.prototype.getDataSet=function(){
     return dataSet;
 }
 D3Charts.prototype.drawAxis=function drawAxis(){
-    var ScaleParam = this.getScaleParam()
+    var ScaleParam = this.getScaleParam();
+    console.log(ScaleParam)
     var { xScale, yScale } = createScale(ScaleParam);
     var axiosp = this.getAxisParam();
     axiosp.x.xScale=xScale;
@@ -113,13 +115,22 @@ D3Charts.prototype.getScaleParam = function () {
     x.rangefrom = 0;
     x.rangeto = staticp.width - staticp.padding.left - staticp.padding.right;
     y.domainfrom = 0;
-    console.log(options)
-    options.series[0].data.forEach((item,i)=>{
-        options.series[0].data[i]= options.series[0].data[i]*1
-    })
-    y.domainto = d3.max(options.series[0].data);
-    y.rangefrom = staticp.height - staticp.padding.top - staticp.padding.bottom;
-    y.rangeto = 0;
+
+     options.series[0].data.forEach((item,i)=>{
+        if(getType(options.series[0].data[i])=="string"){
+            options.series[0].data[i]= options.series[0].data[i]*1
+        }
+     })
+     if(this.type=="kline"){
+        y.domainto = d3.max(options.series[0].data.map(item=>{return d3.max(item)}));
+        y.rangefrom = staticp.height - staticp.padding.top - staticp.padding.bottom;
+        y.rangeto = 0;
+     }else{
+        y.domainto = d3.max(options.series[0].data);
+        y.rangefrom = staticp.height - staticp.padding.top - staticp.padding.bottom;
+        y.rangeto = 0;
+     }
+   
     return { x, y }
 }
 D3Charts.prototype.getAxisParam = function () {
