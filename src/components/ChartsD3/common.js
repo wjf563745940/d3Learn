@@ -15,6 +15,7 @@ D3Charts.DEFAULTS = {
     width: 600,
     height: 600,
     padding: { top: 50, right: 50, bottom: 50, left: 50 },
+    colors:d3.schemeCategory10 ,
     onClick: function () {
         return false
     }
@@ -83,13 +84,14 @@ D3Charts.prototype.drawAxis=function drawAxis(){
     console.log(ScaleParam)
     var { xScale, yScale } = createScale(ScaleParam);
     var axiosp = this.getAxisParam();
+    console.log(axiosp)
     axiosp.x.xScale=xScale;
     axiosp.y.yScale=yScale;
 
     var { xAxis, yAxis } = createAxis(axiosp)
     var staticp = this.options.static;
     var padding = staticp.padding;
-
+    console.log(padding)
     var svg = this.$el;
     svg.append("g")
         .attr("class", "axis")
@@ -123,6 +125,7 @@ D3Charts.prototype.getScaleParam = function () {
      })
      if(this.type=="kline"){
         y.domainto = d3.max(options.series[0].data.map(item=>{return d3.max(item)}));
+        y.domainfrom = d3.min(options.series[0].data.map(item=>{return d3.min(item)}));
         y.rangefrom = staticp.height - staticp.padding.top - staticp.padding.bottom;
         y.rangeto = 0;
      }else{
@@ -134,12 +137,15 @@ D3Charts.prototype.getScaleParam = function () {
     return { x, y }
 }
 D3Charts.prototype.getAxisParam = function () {
-    var defaultNum=this.options.width/100;
+
+    var defaultNum=this.options.static.width/100;
    
     var xvalues=this.options.xAxis[0].data;
     var interval=Math.floor(xvalues.length/defaultNum);
+   
     if(this.options.xAxis[0].axisLabel){
      if(this.options.xAxis[0].axisLabel.interval){
+     
         interval=this.options.xAxis[0].axisLabel.interval;
         defaultNum=Math.floor(xvalues.length/this.options.xAxis[0].axisLabel.interval);
 

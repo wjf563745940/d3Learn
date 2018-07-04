@@ -7,7 +7,8 @@ if(params.x.type=="value"){
     .domain([params.x.domainfrom, params.x.domainto])
     .range([params.x.rangefrom, params.x.rangeto])
 }else if(params.x.type=="category"){
-    var dd=params.x.domainto.map(function(d) { return d; })
+    console.log(params.x)
+    var dd=params.x.domainto.map(function(d) { return d+""; })
     console.log(dd)
     xScale =d3.scaleBand()
     .domain(dd)
@@ -35,6 +36,7 @@ export const createAxis = function (params) {
      
        // .tickArguments([40]);
     //  .tickFormat(d3.format("d"));
+    console.log(params.x.tickValues)
     if(params.x.tickValues.length==0){
         xAxis.tickValues(["2013/1/24","2013/5/21"]) 
     }else{

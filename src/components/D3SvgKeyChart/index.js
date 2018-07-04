@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from "d3";
 import styles from './index.less';
-import { KLine } from 'components/ChartsD3'
+import { KeyChart } from 'components/ChartsD3'
 export default class D3SvgLine extends Component {
 
     render() {
@@ -12,6 +12,63 @@ export default class D3SvgLine extends Component {
         
         
         // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
+        var data1=splitData([
+            ['1994/4/4',35.750],
+            ['1994/4/5',37.250],
+            ['1994/4/6',39.0],
+            ['1994/4/7',38.375],
+            ['1994/4/8',37.750],
+            ['1994/4/11',37.750],
+            ['1994/4/12',37.375],
+            ['1994/4/13',36.250],
+            ['1994/4/14',35.750],
+            ['1994/4/15',35.250],
+            ['1994/4/18',36.250],
+            ['1994/4/19',35.250],
+            ['1994/4/20',34.500],
+            ['1994/4/21',35.625],
+            ['1994/4/22',35.500],
+            ['1994/4/25',36.625],
+            ['1994/4/26',36.375],
+            ['1994/4/28',36.250],
+            ['1994/4/29',36.875],
+            ['1994/5/2',37.250],
+            ['1994/5/3',36.875],
+            ['1994/5/4',36.500],
+            ['1994/5/5',37.125],
+            ['1994/5/6',36.375], 
+            ['1994/5/9',35.875],
+            ['1994/5/10',36.625],
+            ['1994/5/11',37.125],
+            ['1994/5/12',36.250],
+            ['1994/5/13',37.000],
+            ['1994/5/16',37.250],
+            ['1994/5/17',37.500],
+            ['1994/5/18',38.500],
+            ['1994/5/19',39.500],
+            ['1994/5/20',38.875],
+            ['1994/5/23',38.500],
+            // ['1994/5/24',39.00],
+            // ['1994/5/25',38.500],
+            // ['1994/5/26',38.500],
+            // ['1994/5/27',39.000],
+            // ['1994/5/31',39.000],
+            // ['1994/6/1',40.0],
+            // ['1994/6/2',39.875],
+            // ['1994/6/3',39.875],
+            // ['1994/6/6',38.875],
+            // ['1994/6/7',38.50], 
+            // ['1994/6/8',38.250],
+            // ['1994/6/9',38.875],
+            // ['1994/6/10',39.375],
+            // ['1994/6/13',39.375],
+            // ['1994/6/14',39.750],
+            // ['1994/6/15',39.50],
+            // ['1994/6/16',39.375],
+            // ['1994/6/17',38.500],
+
+        ]
+        )
         var data0 = splitData([
             ['2013/1/24', 2320.26,2320.26,2287.3,2362.94],
             ['2013/1/25', 2300,2291.3,2288.26,2308.38],
@@ -131,6 +188,44 @@ function calculateMA(dayCount) {
     }
     return result;
 }
+var option1 = {
+    title: {
+        text: '上证指数',
+        left: 0
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross'
+        }
+    },
+    legend: {
+        data: ['日K']
+    },
+    grid: {
+        left: '10%',
+        right: '10%',
+        bottom: '15%'
+    },
+    xAxis: {
+        type: 'category',
+        data: data1.categoryData,
+        scale: true,
+        boundaryGap : false,
+        axisLine: {onZero: false},
+        splitLine: {show: false},
+        splitNumber: 20,
+        min: 'dataMin',
+        max: 'dataMax'
+    },series: [
+        {
+            name: '日K',
+            type: 'candlestick',
+            data: data1.values,
+        }
+        ]
+}
+
         var option = {
             title: {
                 text: '上证指数',
@@ -308,11 +403,12 @@ function calculateMA(dayCount) {
                         normal: {opacity: 0.5}
                     }
                 },
+                
         
             ]
         };
         return (
-            <div className={styles.chartCon}><KLine data={option}></KLine></div>
+            <div className={styles.chartCon}><KeyChart data={option1}></KeyChart></div>
         )
     }
 }

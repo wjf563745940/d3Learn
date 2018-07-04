@@ -105,6 +105,10 @@ const menuData = [
       {
         name:"k线",
         path:"kLine"
+      },
+      {
+        name:"钥匙图",
+        path:"keyChart"
       }
 
     ]

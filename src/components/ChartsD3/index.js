@@ -5,6 +5,7 @@ import Dbline from './Dbline'
 import Bar from './Bar'
 import Pie from './Pie'
 import KLine from './KLine'
+import KeyChart from './KeyChart'
 const Chart={
     Radar,
     Radar2,
@@ -12,7 +13,8 @@ const Chart={
     Dbline,
     Bar,
     Pie,
-    KLine
+    KLine,
+    KeyChart
 }
 export {
     Chart as default,
@@ -22,5 +24,6 @@ export {
     Dbline,
     Bar,
     Pie,
-    KLine
+    KLine,
+    KeyChart
 }
